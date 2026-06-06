@@ -1,0 +1,546 @@
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+    circle at top,
+    #112b5c 0%,
+    #071733 40%,
+    #020b1f 100%
+    );
+
+    color:white;
+
+    position:relative;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.night-background{
+
+    position:fixed;
+    inset:0;
+
+    overflow:hidden;
+}
+
+/* =========================================
+   MOON
+========================================= */
+
+.moon{
+
+    position:absolute;
+
+    top:60px;
+    right:8%;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+    circle,
+    #ffffff,
+    #dfe9ff
+    );
+
+    box-shadow:
+    0 0 40px #ffffff,
+    0 0 80px rgba(255,255,255,.4),
+    0 0 160px rgba(255,255,255,.15);
+
+    animation:
+    moonFloat 8s ease-in-out infinite;
+}
+
+@keyframes moonFloat{
+
+    50%{
+        transform:
+        translateY(-10px);
+    }
+
+}
+
+/* =========================================
+   STARS
+========================================= */
+
+#stars{
+
+    position:absolute;
+    inset:0;
+}
+
+.star{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:
+    twinkle 4s infinite;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+/* =========================================
+   GLOWS
+========================================= */
+
+.glow{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+}
+
+.glow1{
+
+    width:350px;
+    height:350px;
+
+    background:
+    rgba(0,153,255,.12);
+
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+
+    width:300px;
+    height:300px;
+
+    background:
+    rgba(111,66,193,.15);
+
+    right:-80px;
+    bottom:-80px;
+}
+
+/* =========================================
+   CALCULATOR CONTAINER
+========================================= */
+
+.calculator-container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    position:relative;
+    z-index:5;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.calculator-card{
+
+    width:100%;
+    max-width:430px;
+
+    padding:28px;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(25px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+    animation:
+    cardFloat 5s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+
+    50%{
+        transform:
+        translateY(-8px);
+    }
+
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.calc-header{
+
+    text-align:center;
+
+    margin-bottom:22px;
+}
+
+.calc-header h1{
+
+    font-size:2rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+}
+
+.calc-header p{
+
+    color:
+    rgba(255,255,255,.6);
+
+    margin-top:8px;
+
+    font-size:.9rem;
+}
+
+/* =========================================
+   DISPLAY
+========================================= */
+
+#display{
+
+    width:100%;
+    height:90px;
+
+    border-radius:20px;
+
+    background:
+    rgba(0,0,0,.25);
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    padding:20px;
+
+    font-size:2rem;
+
+    font-weight:500;
+
+    overflow:hidden;
+
+    margin-bottom:20px;
+
+    box-shadow:
+    inset 0 0 20px rgba(0,0,0,.3);
+}
+
+/* =========================================
+   BUTTONS GRID
+========================================= */
+
+.buttons{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn,
+#equalBtn{
+
+    border:none;
+
+    height:65px;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    font-size:1.1rem;
+
+    color:white;
+
+    transition:.25s;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(10px);
+}
+
+.btn:hover,
+#equalBtn:hover{
+
+    transform:
+    translateY(-3px);
+
+    background:
+    rgba(255,255,255,.15);
+}
+
+.btn:active,
+#equalBtn:active{
+
+    transform:
+    scale(.96);
+}
+
+/* =========================================
+   SPECIAL BUTTONS
+========================================= */
+
+.operator{
+
+    background:
+    rgba(0,153,255,.15);
+}
+
+.special{
+
+    background:
+    rgba(255,255,255,.12);
+}
+
+.zero{
+
+    grid-column:
+    span 2;
+}
+
+/* =========================================
+   EQUAL BUTTON
+========================================= */
+
+#equalBtn{
+
+    background:
+    linear-gradient(
+    135deg,
+    #5b9cff,
+    #8f6fff
+    );
+
+    color:white;
+
+    font-weight:600;
+}
+
+/* =========================================
+   HIDDEN SECRET
+========================================= */
+
+.hidden-secret{
+
+    display:none;
+}
+
+/* =========================================
+   PORTAL OVERLAY
+========================================= */
+
+#unlockOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    rgba(0,0,0,.92);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.8s;
+
+    z-index:9999;
+}
+
+#unlockOverlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.unlock-content{
+
+    text-align:center;
+}
+
+.unlock-content h2{
+
+    margin-top:25px;
+
+    font-size:1.5rem;
+
+    font-weight:400;
+}
+
+/* =========================================
+   PORTAL RING
+========================================= */
+
+.portal-ring{
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:
+    4px solid rgba(255,255,255,.2);
+
+    border-top:
+    4px solid #8f6fff;
+
+    border-right:
+    4px solid #5b9cff;
+
+    animation:
+    spin 2s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* =========================================
+   SHOOTING STAR
+========================================= */
+
+.shooting-star{
+
+    position:absolute;
+
+    width:2px;
+    height:120px;
+
+    background:
+    linear-gradient(
+    white,
+    transparent
+    );
+
+    transform:
+    rotate(45deg);
+
+    animation:
+    shooting 1.5s linear;
+}
+
+@keyframes shooting{
+
+    from{
+
+        opacity:1;
+
+        transform:
+        translate(0,0)
+        rotate(45deg);
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+        translate(-500px,500px)
+        rotate(45deg);
+    }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    .calculator-card{
+
+        padding:20px;
+    }
+
+    .moon{
+
+        width:120px;
+        height:120px;
+    }
+
+    #display{
+
+        height:80px;
+
+        font-size:1.7rem;
+    }
+
+    .btn,
+    #equalBtn{
+
+        height:58px;
+    }
+
+}
