@@ -420,42 +420,138 @@ body{
 .unlock-content{
 
     text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
 }
 
 .unlock-content h2{
 
-    margin-top:25px;
+    color:white;
 
-    font-size:1.5rem;
+    font-size:2rem;
 
-    font-weight:400;
+    font-weight:500;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #6f42ff,
+        0 0 40px #5ba8ff;
+
+    animation:
+        textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow{
+
+    from{
+
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #6f42ff;
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 20px #fff,
+            0 0 40px #6f42ff,
+            0 0 60px #5ba8ff;
+
+    }
+
 }
 
 /* =========================================
-   PORTAL RING
+   MAGICAL PORTAL
 ========================================= */
 
 .portal-ring{
 
-    width:180px;
-    height:180px;
+    position:relative;
+
+    width:220px;
+    height:220px;
 
     border-radius:50%;
 
-    border:
-    4px solid rgba(255,255,255,.2);
-
-    border-top:
-    4px solid #8f6fff;
-
-    border-right:
-    4px solid #5b9cff;
+    background:
+    conic-gradient(
+        from 0deg,
+        #6f42ff,
+        #7b61ff,
+        #5ba8ff,
+        #80d0ff,
+        #6f42ff
+    );
 
     animation:
-    spin 2s linear infinite;
+    portalSpin 2s linear infinite;
+
+    box-shadow:
+        0 0 20px #6f42ff,
+        0 0 40px #6f42ff,
+        0 0 80px #5ba8ff,
+        0 0 120px rgba(91,168,255,.8);
 }
 
-@keyframes spin{
+/* Hollow center */
+
+.portal-ring::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:14px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(20,10,60,.95) 0%,
+        rgba(5,5,20,.98) 70%,
+        rgba(0,0,0,1) 100%
+    );
+
+    z-index:2;
+}
+
+/* Outer magical aura */
+
+.portal-ring::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-25px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(111,66,255,.6),
+        rgba(91,168,255,.3),
+        transparent 70%
+    );
+
+    filter:blur(25px);
+
+    animation:
+    pulsePortal 2s ease-in-out infinite;
+
+    z-index:-1;
+}
+
+/* Rotation */
+
+@keyframes portalSpin{
 
     from{
         transform:rotate(0deg);
@@ -463,6 +559,28 @@ body{
 
     to{
         transform:rotate(360deg);
+    }
+
+}
+
+/* Glow pulse */
+
+@keyframes pulsePortal{
+
+    0%,100%{
+
+        opacity:.7;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.15);
+
     }
 
 }
@@ -544,3 +662,216 @@ body{
     }
 
 }
+
+
+/* =========================================
+   ENHANCED PORTAL ENTRY ANIMATION
+========================================= */
+
+#unlockOverlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #000000, #050510);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.01s;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#unlockOverlay.active {
+    opacity: 1;
+    visibility: visible;
+    animation: portalAmbientPulse 0.8s ease-out;
+}
+
+@keyframes portalAmbientPulse {
+    0% { background: radial-gradient(circle, #000, #000); }
+    100% { background: radial-gradient(circle, #1a0a3a, #000); }
+}
+
+/* Portal Tunnel Effect */
+.portal-tunnel {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10000;
+    overflow: hidden;
+}
+
+.tunnel-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #6f42ff, #ff69b4, #00ccff, #6f42ff);
+    animation: tunnelExpand 2s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    box-shadow: 0 0 80px rgba(111, 66, 255, 0.8);
+}
+
+@keyframes tunnelExpand {
+    0% {
+        width: 0px;
+        height: 0px;
+        margin-left: 0px;
+        margin-top: 0px;
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    30% {
+        width: 200px;
+        height: 200px;
+        margin-left: -100px;
+        margin-top: -100px;
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+    70% {
+        width: 500px;
+        height: 500px;
+        margin-left: -250px;
+        margin-top: -250px;
+        opacity: 0.9;
+        transform: rotate(540deg);
+    }
+    100% {
+        width: 2000px;
+        height: 2000px;
+        margin-left: -1000px;
+        margin-top: -1000px;
+        opacity: 0;
+        transform: rotate(1080deg);
+    }
+}
+
+/* Portal Particles Stream */
+.portal-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+    font-size: 20px;
+    animation: particleFly 1.5s ease-out forwards;
+}
+
+@keyframes particleFly {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--tx, -200px), var(--ty, -150px)) scale(0.6);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--tx2, -500px), var(--ty2, -400px)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Spiral Light Rays */
+.spiral-ray {
+    position: fixed;
+    width: 4px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #bf7eff, rgba(255,255,255,0));
+    filter: blur(3px);
+    pointer-events: none;
+    z-index: 10000;
+    animation: spiralSuck 1.8s ease-in forwards;
+}
+
+@keyframes spiralSuck {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(var(--centerX), var(--centerY)) rotate(720deg) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Screen Flash */
+.screen-flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    pointer-events: none;
+    z-index: 10002;
+    opacity: 0;
+    animation: flashBang 0.4s ease-out forwards;
+}
+
+@keyframes flashBang {
+    0% { opacity: 0; }
+    10% { opacity: 0.9; }
+    30% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
+
+/* Portal Ring before entry */
+.portal-ring {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #6f42ff, #7b61ff, #5ba8ff, #80d0ff, #6f42ff);
+    animation: portalSpin 2s linear infinite;
+    box-shadow: 0 0 20px #6f42ff, 0 0 40px #6f42ff, 0 0 80px #5ba8ff;
+}
+
+.portal-ring::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,10,60,0.95) 0%, rgba(5,5,20,0.98) 70%, rgba(0,0,0,1) 100%);
+    z-index: 2;
+}
+
+.portal-ring::after {
+    content: "";
+    position: absolute;
+    inset: -25px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(111,66,255,0.6), rgba(91,168,255,0.3), transparent 70%);
+    filter: blur(25px);
+    animation: pulsePortal 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes portalSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulsePortal {
+    0%,100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
+.unlock-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.unlock-content h2 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px #fff, 0 0 20px #6f42ff, 0 0 40px #5ba8ff;
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #6f42ff; }
+    to { text-shadow: 0 0 20px #fff, 0 0 40px #6f42ff, 0 0 60px #5ba8ff; }
+}
+
