@@ -154,15 +154,16 @@ setInterval(() => {
 ========================================= */
 
 const LOVE_LETTER = `
-Every moment with you feels like a beautiful dream.
-You bring happiness, warmth, and meaning to my life.
-This little surprise is just a small reminder of how much you mean to me.
-No matter where life takes us, you will always have a special place in my heart.
+You are my peace, my happiness, and the most beautiful part of my life. If I have ever hurt you, I am truly sorry. Please know that my heart never wishes to cause you pain.
+
+Thank you for your patience, your kindness, and your endless love. Every day, I thank Allah for bringing you into my life. Your smile brightens my world, and your love makes my heart feel at home.
+
+I loved you yesterday, I love you today, and I will love you tomorrow and forever.
+
+You are my forever, my future wife, and my greatest blessing. ❤️
 
 Forever Yours ❤️
 Syed Imadulla
-
-I Love You Soooo Much 😳😘❤️
 `;
 
 /* =========================================
