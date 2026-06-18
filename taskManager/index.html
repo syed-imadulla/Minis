@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <div class="logo-text">
+                    <h2>TaskFlow</h2>
+                    <p>Dynamic Task Planner</p>
+                </div>
+
+            </div>
+
+            <div class="clock-box">
+                <div id="dayName">Thursday</div>
+                <div id="liveClock">00:00:00</div>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+
+    <main class="container">
+
+        <!-- Hero Section -->
+
+        <section class="hero-card glass">
+
+            <div class="hero-content">
+
+                <h1>
+                    Stay Organized.<br>
+                    Finish Tasks Faster.
+                </h1>
+
+                <p>
+                    Plan tasks, prioritize deadlines, manage progress,
+                    and never miss important work again.
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon total">
+                    <i class="fa-solid fa-list"></i>
+                </div>
+
+                <h2 id="totalTasks">0</h2>
+                <p>Total Tasks</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon active">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+
+                <h2 id="activeTasks">0</h2>
+                <p>Active Tasks</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon complete">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <h2 id="completedTasks">0</h2>
+                <p>Completed</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon overdue">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <h2 id="overdueTasks">0</h2>
+                <p>Overdue</p>
+
+            </div>
+
+        </section>
+
+        <!-- Create Task -->
+
+        <section class="task-form glass">
+
+            <div class="section-header">
+                <h2>Create New Task</h2>
+                <p>Add a task with priority and deadline</p>
+            </div>
+
+            <div class="form-grid">
+
+                <input type="text" id="taskName" placeholder="Enter task name">
+
+                <select id="priority">
+                    <option value="high">🔥 High Priority</option>
+                    <option value="medium">⚡ Medium Priority</option>
+                    <option value="low">🌱 Low Priority</option>
+                </select>
+
+                <input type="datetime-local" id="deadline">
+
+                <button id="addTaskBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Task
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Kanban Board -->
+
+        <section class="board">
+
+            <!-- Backlog -->
+
+            <div class="column glass" id="backlog">
+
+                <div class="column-header">
+
+                    <h3>
+                        <i class="fa-solid fa-box-archive"></i>
+                        Backlog
+                    </h3>
+
+                    <span class="task-count">0</span>
+
+                </div>
+
+                <div class="drop-area">
+
+                    <p class="empty-message">
+                        Expired and overdue tasks appear here
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Todo -->
+
+            <div class="column glass" id="todo">
+
+                <div class="column-header">
+
+                    <h3>
+                        <i class="fa-solid fa-list-check"></i>
+                        To Do
+                    </h3>
+
+                    <span class="task-count">0</span>
+
+                </div>
+
+                <div class="drop-area">
+
+                    <p class="empty-message">
+                        Create your first task to get started
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- In Progress -->
+
+            <div class="column glass" id="progress">
+
+                <div class="column-header">
+
+                    <h3>
+                        <i class="fa-solid fa-spinner"></i>
+                        In Progress
+                    </h3>
+
+                    <span class="task-count">0</span>
+
+                </div>
+
+                <div class="drop-area">
+
+                    <p class="empty-message">
+                        Drag active tasks here
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Completed -->
+
+            <div class="column glass" id="completed">
+
+                <div class="column-header">
+
+                    <h3>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Completed
+                    </h3>
+
+                    <span class="task-count">0</span>
+
+                </div>
+
+                <div class="drop-area">
+
+                    <p class="empty-message">
+                        Finished tasks will appear here
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Success Toast -->
+
+    <div id="successToast" class="success-toast">
+
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div class="toast-content">
+            <h4>Task Completed</h4>
+            <p id="completedTaskName">
+                Task completed successfully
+            </p>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
