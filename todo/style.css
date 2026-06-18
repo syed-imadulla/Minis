@@ -843,3 +843,9 @@ header {
     -webkit-user-select:none;
     user-select:none;
 }
+
+html,
+body {
+    overflow-x: hidden;
+    overscroll-behavior: none;
+}
