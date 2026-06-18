@@ -74,7 +74,11 @@ function initializeBoard() {
         cancel: ".completed-task",
         placeholder: "ui-sortable-placeholder",
         tolerance: "pointer",
-
+        delay: 120,
+        distance: 10,
+        scroll: true,
+        scrollSensitivity: 80,
+        scrollSpeed: 20,
         start: function () {
 
             $(".column")
