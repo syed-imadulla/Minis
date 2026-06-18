@@ -834,17 +834,8 @@ header {
 
 }
 
-.board,
-.column,
-.drop-area,
-.task {
-    touch-action: none;
-}
-
-html,
-body {
-    overflow-x: hidden;
-    overscroll-behavior: none;
+.drop-area{
+    touch-action:none;
 }
 
 .task{
