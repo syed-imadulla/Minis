@@ -71,18 +71,60 @@ function initializeBoard() {
     $(".drop-area").sortable({
 
         connectWith: ".drop-area",
-        cancel: ".completed-task",
-        placeholder: "ui-sortable-placeholder",
-        tolerance: "pointer",
-        delay: 120,
-        distance: 10,
-        scroll: true,
-        scrollSensitivity: 80,
-        scrollSpeed: 20,
-        start: function () {
 
-            $(".column")
-                .addClass("drag-hover");
+        cancel: ".completed-task",
+
+        placeholder: "ui-sortable-placeholder",
+
+        tolerance: "pointer",
+
+        helper: function (e, item) {
+
+            const helper = item.clone();
+
+            helper.css({
+                width: item.outerWidth(),
+                minHeight: item.outerHeight(),
+                height: item.outerHeight(),
+                boxSizing: "border-box"
+            });
+
+            return helper;
+        },
+
+        appendTo: "body",
+
+        zIndex: 99999,
+
+        cursorAt: {
+            left: 60,
+            top: 30
+        },
+
+        delay: 120,
+
+        distance: 10,
+
+        scroll: true,
+
+        scrollSensitivity: 80,
+
+        scrollSpeed: 20,
+
+        start: function (event, ui) {
+
+            ui.helper.css({
+                width: ui.item.outerWidth(),
+                height: ui.item.outerHeight()
+            });
+
+            ui.placeholder.height(
+                ui.item.outerHeight()
+            );
+
+            ui.placeholder.width(
+                ui.item.outerWidth()
+            );
 
         },
 
