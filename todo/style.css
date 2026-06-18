@@ -842,8 +842,3 @@ header {
     touch-action:none;
 }
 
-html,
-body {
-    overflow-x: hidden;
-    overscroll-behavior: none;
-}
