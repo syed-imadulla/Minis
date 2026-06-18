@@ -840,8 +840,6 @@ header {
 
 .task{
     touch-action:none;
-    -webkit-user-select:none;
-    user-select:none;
 }
 
 html,
