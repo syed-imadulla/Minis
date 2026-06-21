@@ -1,24 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>For Safiya ❤️</title>
 
-    <link rel="stylesheet" href="surprise.css">
+    <link rel="stylesheet" href="surprise.css" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
-        rel="stylesheet">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
+  <body>
     <!-- BACKGROUND -->
 
     <canvas id="starCanvas"></canvas> <canvas id="fireworksCanvas"></canvas>
@@ -30,378 +31,251 @@
     <div id="fireflyContainer"></div>
 
     <main>
+      <!-- HERO -->
 
-        <!-- HERO -->
+      <section id="heroSection">
+        ```
+        <div class="heroContent">
+          <h1>Safiya 🌙</h1>
 
-        <section id="heroSection">
+          <p>
+            Tonight I want to take you into our little dream festival beneath
+            the stars.
+          </p>
 
-            ```
-            <div class="heroContent">
+          <div class="scrollMagic">
+            🌙 Follow the moonlight, my love...
 
-                <h1>
-                    Safiya 🌙
-                </h1>
+            <span> A little piece of my heart is waiting below. </span>
+          </div>
 
-                <p>
+          <div class="scrollArrow">⬇</div>
+        </div>
+        ```
+      </section>
 
-                    Tonight I want to take you into
-                    our little dream festival beneath
-                    the stars.
+      <!-- BOUQUET -->
 
-                </p>
+      <section id="bouquetSection">
+        ```
+        <h2>A Bouquet For You 🌹</h2>
 
-                <div class="scrollMagic">
+        <img src="assets/bouquet.png" alt="Bouquet" class="bouquetImage" />
+        ```
+      </section>
 
-                    🌙 Follow the moonlight, my love...
+      <!-- MAGIC REVEAL -->
 
-                    <span>
-                        A little piece of my heart is waiting below.
-                    </span>
+      <!-- MAGIC REVEAL -->
+      <section id="magicSection">
+        <h2>A Special Gift For You ✨</h2>
+        <p class="giftText">Click The Gift</p>
 
-                </div>
-
-                <div class="scrollArrow">
-
-                    ⬇
-
-                </div>
+        <div id="giftBox">
+          <div class="giftGlow"></div>
+          <div class="giftLid"></div>
+          <div class="giftBody"></div>
+          <div class="giftRibbonVertical"></div>
+          <div class="giftRibbonHorizontal"></div>
+          <div class="giftBow"></div>
+          <div id="revealContent">
+            <div id="giftPhoto">
+              <div class="photoFrame">
+                <img src="assets/her-photo.jpg" alt="Safiya" />
+              </div>
             </div>
-            ```
-
-        </section>
-
-        <!-- BOUQUET -->
-
-        <section id="bouquetSection">
-
-            ```
-            <h2>
-                A Bouquet For You 🌹
-            </h2>
-
-            <img src="assets/bouquet.png" alt="Bouquet" class="bouquetImage">
-            ```
-
-        </section>
-
-        <!-- MAGIC REVEAL -->
-
-        <!-- MAGIC REVEAL -->
-        <section id="magicSection">
-            <h2>A Special Gift For You ✨</h2>
-            <p class="giftText">Click The Gift</p>
-
-            <div id="giftBox">
-                <div class="giftGlow"></div>
-                <div class="giftLid"></div>
-                <div class="giftBody"></div>
-                <div class="giftRibbonVertical"></div>
-                <div class="giftRibbonHorizontal"></div>
-                <div class="giftBow"></div>
-                <div id="revealContent">
-                    <div id="giftPhoto">
-                        <div class="photoFrame">
-                            <img src="assets/her-photo.jpg" alt="Safiya">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- REVEAL CONTENT - MOVED OUTSIDE giftBox -->
-            <div id="revealContent">
-                <!-- PHOTO -->
-
-
-                <!-- AUDIO -->
-                <div id="giftAudio">
-                    <div class="audioCard">
-                        <h3>🎵 A Song From My Heart</h3>
-                        <audio id="voiceMessage" controls>
-                            <source src="assets/voice-message.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-                </div>
-            </div>
-
-            <!-- LETTER -->
-            <div id="letterWrapper">
-                <div class="letterPaper">
-                    <h2>My Dearest Safiya ❤️</h2>
-                    <div id="loveLetter"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COUNTER -->
-
-        <section id="counterSection">
-
-            ```
-            <h2>
-
-                Since 12 November 2024
-
-            </h2>
-
-            <div class="counterGrid">
-
-                <div class="counterCard">
-
-                    <span id="days">0</span>
-
-                    <p>Days</p>
-
-                </div>
-
-                <div class="counterCard">
-
-                    <span id="hours">0</span>
-
-                    <p>Hours</p>
-
-                </div>
-
-                <div class="counterCard">
-
-                    <span id="minutes">0</span>
-
-                    <p>Minutes</p>
-
-                </div>
-
-                <div class="counterCard">
-
-                    <span id="seconds">0</span>
-
-                    <p>Seconds</p>
-
-                </div>
-
-            </div>
-            ```
-
-        </section>
-
-        <!-- MEMORIES -->
-
-        <!-- MEMORIES - ENHANCED -->
-        <section id="gallerySection">
-            <h2>Our Beautiful Memories 📸</h2>
-
-            <div class="memoryGallery">
-                <div class="memoryCard" data-memory="treasure">
-                    <div class="image-container">
-                        <img src="assets/memory1.jpg" alt="A Memory I Treasure">
-                    </div>
-                    <p>A Memory I Treasure</p>
-                </div>
-
-                <div class="memoryCard" data-memory="smile">
-                    <div class="image-container">
-                        <img src="assets/memory2.jpg" alt="My Favorite Smile">
-                    </div>
-                    <p>My Favorite Smile</p>
-                </div>
-
-                <div class="memoryCard" data-memory="heart">
-                    <div class="image-container">
-                        <img src="assets/memory3.jpg" alt="Forever In My Heart">
-                    </div>
-                    <p>Forever In My Heart</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- REASONS -->
-
-        <section id="reasonsSection">
-
-            ```
-            <h2>
-
-                Reasons I Love You ❤️
-
-            </h2>
-
-            <div class="wishContainer">
-
-                <div class="wish active">
-
-                    Your Smile ✨
-
-                </div>
-
-                <div class="wish">
-                    Your Scent 🌸💫
-                </div>
-
-                <div class="wish">
-
-                    Your Kindness 🌸
-
-                </div>
-
-                <div class="wish">
-
-                    Your Voice 🌙
-
-                </div>
-
-                <div class="wish">
-
-                    Your Heart ❤️
-
-                </div>
-
-                <div class="wish">
-
-                    Everything About You ♾️
-
-                </div>
-
-
-            </div>
-            ```
-
-        </section>
-
-        <!-- FINALE -->
-
-        <section id="finalSection">
-
-            ```
-            <h1>
-
-                Safiya ❤️
-
-            </h1>
-
-            <p>
-
-                Among all the stars in the sky,
-                meeting you was my favorite miracle.
-
-            </p>
-
-            <button id="finalBtn">
-
-                Watch The Fireworks 🎆
-
-            </button>
-            ```
-
-        </section>
-
-        <!-- PROPOSAL -->
-
-        <div id="finaleScreen">
-
-            ```
-            <div class="finalMessage">
-
-                <div id="proposalStage1">
-
-                    <h1>
-
-                        Thank You ❤️
-
-                    </h1>
-
-                    <h2>
-
-                        For Every Smile
-
-                        <br>
-
-                        For Every Memory
-
-                        <br>
-
-                        For Every Moment
-                        <br>
-                        I Love You 😘❤️
-
-                    </h2>
-
-                </div>
-
-                <div id="proposalStage2">
-
-                    <h2>
-
-                        Safiya...
-
-                        <br><br>
-
-                        There Is One More Thing
-
-                        <br>
-
-                        I Want To Ask You
-
-                    </h2>
-
-                </div>
-
-                <div id="proposalStage3">
-
-                    <h1>
-
-                        💍
-
-                    </h1>
-
-                    <h2>
-
-                        Will You Marry Me?
-
-                    </h2>
-
-                    <div class="proposalButtons">
-
-                        <button id="yesBtn">
-
-                            Yes ❤️
-
-                        </button>
-
-                        <button id="noBtn">
-
-                            No 😏
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <div id="proposalStage4">
-
-                    <h1>
-                        ✨ The Happiest Day Of My Life ✨
-                    </h1>
-
-                    <h2>
-
-                        You Just Made Me
-
-                        <br>
-
-                        The Happiest Person Alive ❤️
-
-                    </h2>
-
-                </div>
-
-            </div>
-            ```
-
+          </div>
         </div>
 
+        <!-- REVEAL CONTENT - MOVED OUTSIDE giftBox -->
+        <div id="revealContent">
+          <!-- PHOTO -->
+
+          <!-- AUDIO -->
+          <div id="giftAudio">
+            <div class="audioCard">
+              <h3>🎵 A Song From My Heart</h3>
+              <audio id="voiceMessage" controls>
+                <source src="assets/voice-message.mp3" type="audio/mpeg" />
+              </audio>
+            </div>
+          </div>
+        </div>
+
+        <!-- LETTER -->
+        <div id="letterWrapper">
+          <div class="letterPaper">
+            <h2>My Dearest Safiya ❤️</h2>
+            <div id="loveLetter"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COUNTER -->
+
+      <section id="counterSection">
+        ```
+        <h2>Since 12 November 2024</h2>
+
+        <div class="counterGrid">
+          <div class="counterCard">
+            <span id="days">0</span>
+
+            <p>Days</p>
+          </div>
+
+          <div class="counterCard">
+            <span id="hours">0</span>
+
+            <p>Hours</p>
+          </div>
+
+          <div class="counterCard">
+            <span id="minutes">0</span>
+
+            <p>Minutes</p>
+          </div>
+
+          <div class="counterCard">
+            <span id="seconds">0</span>
+
+            <p>Seconds</p>
+          </div>
+        </div>
+        ```
+      </section>
+
+      <!-- MEMORIES -->
+
+      <!-- MEMORIES - ENHANCED -->
+      <section id="gallerySection">
+        <h2>Our Beautiful Memories 📸</h2>
+
+        <div class="memoryGallery">
+          <div class="memoryCard" data-memory="treasure">
+            <div class="image-container">
+              <img src="assets/memory1.jpg" alt="A Memory I Treasure" />
+            </div>
+            <p>A Memory I Treasure</p>
+          </div>
+
+          <div class="memoryCard" data-memory="smile">
+            <div class="image-container">
+              <img src="assets/memory2.jpg" alt="My Favorite Smile" />
+            </div>
+            <p>My Favorite Smile</p>
+          </div>
+
+          <div class="memoryCard" data-memory="heart">
+            <div class="image-container">
+              <img src="assets/memory3.jpg" alt="Forever In My Heart" />
+            </div>
+            <p>Forever In My Heart</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- REASONS -->
+
+      <section id="reasonsSection">
+        ```
+        <h2>Reasons I Love You ❤️</h2>
+
+        <div class="wishContainer">
+          <div class="wish active">Your Smile ✨</div>
+
+          <div class="wish">Your Scent 🌸💫</div>
+
+          <div class="wish">Your Kindness 🌸</div>
+
+          <div class="wish">Your Voice 🌙</div>
+
+          <div class="wish">Your Heart ❤️</div>
+
+          <div class="wish">Everything About You ♾️</div>
+        </div>
+        ```
+      </section>
+
+      <!-- FINALE -->
+
+      <section id="finalSection">
+        ```
+        <h1>Safiya ❤️</h1>
+
+        <p>
+          Among all the stars in the sky, meeting you was my favorite miracle.
+        </p>
+
+        <button id="finalBtn">Watch The Fireworks 🎆</button>
+        ```
+      </section>
+
+      <!-- PROPOSAL -->
+
+      <div id="finaleScreen">
+        ```
+        <div class="finalMessage">
+          <div id="proposalStage1">
+            <h1>Thank You ❤️</h1>
+
+            <h2>
+              For Every Smile
+
+              <br />
+
+              For Every Memory
+
+              <br />
+
+              For Every Moment
+              <br />
+              I Love You 😘❤️
+            </h2>
+          </div>
+
+          <div id="proposalStage2">
+            <h2>
+              Safiya...
+
+              <br /><br />
+
+              There Is One More Thing
+
+              <br />
+
+              I Want To Ask You
+            </h2>
+          </div>
+
+          <div id="proposalStage3">
+            <h1>💍</h1>
+
+            <h2>Will You Marry Me?</h2>
+
+            <div class="proposalButtons">
+              <button id="yesBtn">Yes ❤️</button>
+
+              <button id="noBtn">No 😏</button>
+            </div>
+          </div>
+
+          <div id="proposalStage4">
+            <h1>✨ The Happiest Day Of My Life ✨</h1>
+
+            <h2>
+              You Just Made Me
+
+              <br />
+
+              The Happiest Person Alive ❤️
+            </h2>
+          </div>
+        </div>
+        ```
+      </div>
     </main>
 
     <script src="surprise.js"></script>
-
-</body>
-
+  </body>
 </html>

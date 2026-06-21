@@ -6,43 +6,42 @@ let gif = document.getElementById("specialGif");
 let sound = document.getElementById("bgSound");
 
 let played = false;
-sound.loop=true;
+sound.loop = true;
 
-function updateUI(){
-    let num = parseInt(digit.textContent);
+function updateUI() {
+  let num = parseInt(digit.textContent);
 
-    if(num === 67){
-        digit.style.color = "yellow";
-        gif.classList.add("show");
+  if (num === 67) {
+    digit.style.color = "yellow";
+    gif.classList.add("show");
 
-        if(!played){
-            sound.currentTime = 0;
-            sound.play();
-            played = true;
-        }
-
-    }else{
-        digit.style.color = "#e8e6e3";
-        gif.classList.remove("show");
-
-        sound.pause();          
-        sound.currentTime = 0;  
-
-        played = false;
+    if (!played) {
+      sound.currentTime = 0;
+      sound.play();
+      played = true;
     }
+  } else {
+    digit.style.color = "#e8e6e3";
+    gif.classList.remove("show");
+
+    sound.pause();
+    sound.currentTime = 0;
+
+    played = false;
+  }
 }
 
-dec.addEventListener("click",()=>{
-    digit.textContent = parseInt(digit.textContent) - 1;
-    updateUI();
+dec.addEventListener("click", () => {
+  digit.textContent = parseInt(digit.textContent) - 1;
+  updateUI();
 });
 
-res.addEventListener("click",()=>{
-    digit.textContent = 0;
-    updateUI();
+res.addEventListener("click", () => {
+  digit.textContent = 0;
+  updateUI();
 });
 
-inc.addEventListener("click",()=>{
-    digit.textContent = parseInt(digit.textContent) + 1;
-    updateUI();
+inc.addEventListener("click", () => {
+  digit.textContent = parseInt(digit.textContent) + 1;
+  updateUI();
 });

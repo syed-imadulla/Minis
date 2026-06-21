@@ -1,137 +1,137 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background:#f6f6f6;
-    color:#222;
-    font-family:'Quicksand', sans-serif;
-    padding:50px 20px;
-    position:relative;
-    overflow-x:hidden;
+body {
+  background: #f6f6f6;
+  color: #222;
+  font-family: "Quicksand", sans-serif;
+  padding: 50px 20px;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* ================= HERO ================= */
-.hero{
-    text-align:center;
-    margin-bottom:60px;
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.hero h1{
-    font-family:'Patrick Hand', cursive;
-    font-size:3.5rem;
-    margin-bottom:10px;
+.hero h1 {
+  font-family: "Patrick Hand", cursive;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
 }
 
-.hero p{
-    color:#777;
+.hero p {
+  color: #777;
 }
 
 /* ================= GRID ================= */
-.grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    gap:30px;
+.grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 /* ================= CARD ================= */
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:18px;
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 18px;
 
-    border:2px solid #333;
-    box-shadow: 4px 4px 0px #333;
+  border: 2px solid #333;
+  box-shadow: 4px 4px 0px #333;
 
-    text-decoration:none;
-    color:black;
+  text-decoration: none;
+  color: black;
 
-    position:relative;
-    transition:0.25s ease;
+  position: relative;
+  transition: 0.25s ease;
 }
 
 /* slight hand-drawn tilt */
-.card:nth-child(odd){
-    transform: rotate(-0.5deg);
+.card:nth-child(odd) {
+  transform: rotate(-0.5deg);
 }
 
-.card:nth-child(even){
-    transform: rotate(0.5deg);
+.card:nth-child(even) {
+  transform: rotate(0.5deg);
 }
 
 /* hover */
-.card:hover{
-    transform: rotate(0deg) scale(1.04);
-    box-shadow: 8px 8px 0px #333;
+.card:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 8px 8px 0px #333;
 }
 
 /* underline stroke */
-.card::after{
-    content:"";
-    position:absolute;
-    bottom:12px;
-    left:20px;
-    width:40px;
-    height:3px;
-    background:#333;
-    border-radius:10px;
-    opacity:0.6;
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  width: 40px;
+  height: 3px;
+  background: #333;
+  border-radius: 10px;
+  opacity: 0.6;
 }
 
 /* text */
-.card h2{
-    font-family:'Patrick Hand', cursive;
-    font-size:1.5rem;
-    margin-bottom:8px;
+.card h2 {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
 }
 
-.card p{
-    font-size:0.95rem;
-    color:#555;
+.card p {
+  font-size: 0.95rem;
+  color: #555;
 }
 
 /* ================= DOODLE BLOBS ================= */
-.doodles{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:-1;
+.doodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* LEFT BLOB */
-.blob1{
-    position:absolute;
-    width:260px;
-    height:200px;
-    top:40px;
-    left:-100px;
+.blob1 {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  top: 40px;
+  left: -100px;
 
-    border:2px dashed #999;
-    border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%;
-    transform: rotate(-20deg);
-    opacity:0.5;
+  border: 2px dashed #999;
+  border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%;
+  transform: rotate(-20deg);
+  opacity: 0.5;
 }
 
 /* RIGHT BLOB */
-.blob2{
-    position:absolute;
-    width:260px;
-    height:200px;
-    bottom:60px;
-    right:-100px;
+.blob2 {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  bottom: 60px;
+  right: -100px;
 
-    border:2px dashed #999;
-    border-radius: 50% 50% 60% 40% / 45% 55% 50% 50%;
-    transform: rotate(15deg);
-    opacity:0.5;
+  border: 2px dashed #999;
+  border-radius: 50% 50% 60% 40% / 45% 55% 50% 50%;
+  transform: rotate(15deg);
+  opacity: 0.5;
 }
 
 /* subtle interaction */
 body:hover .blob1,
-body:hover .blob2{
-    opacity:0.65;
+body:hover .blob2 {
+  opacity: 0.65;
 }

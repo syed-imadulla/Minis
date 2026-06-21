@@ -13,17 +13,15 @@ const activeTimers = {};
 ========================== */
 
 $(document).ready(function () {
+  startClock();
 
-    startClock();
+  initializeBoard();
 
-    initializeBoard();
+  updateStats();
 
-    updateStats();
+  updateColumnCounts();
 
-    updateColumnCounts();
-
-    $("#addTaskBtn").on("click", addTask);
-
+  $("#addTaskBtn").on("click", addTask);
 });
 
 /* ==========================
@@ -31,35 +29,27 @@ $(document).ready(function () {
 ========================== */
 
 function startClock() {
+  updateClock();
 
-    updateClock();
-
-    setInterval(updateClock, 1000);
-
+  setInterval(updateClock, 1000);
 }
 
 function updateClock() {
+  const now = new Date();
 
-    const now = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-    const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ];
+  $("#dayName").text(days[now.getDay()]);
 
-    $("#dayName").text(
-        days[now.getDay()]
-    );
-
-    $("#liveClock").text(
-        now.toLocaleTimeString()
-    );
-
+  $("#liveClock").text(now.toLocaleTimeString());
 }
 
 /* ==========================
@@ -67,92 +57,72 @@ function updateClock() {
 ========================== */
 
 function initializeBoard() {
+  $(".drop-area")
+    .sortable({
+      connectWith: ".drop-area",
 
-    $(".drop-area").sortable({
+      cancel: ".completed-task",
 
-        connectWith: ".drop-area",
+      placeholder: "ui-sortable-placeholder",
 
-        cancel: ".completed-task",
+      tolerance: "pointer",
 
-        placeholder: "ui-sortable-placeholder",
+      helper: function (e, item) {
+        const helper = item.clone();
 
-        tolerance: "pointer",
+        helper.css({
+          width: item.outerWidth(),
+          minHeight: item.outerHeight(),
+          height: item.outerHeight(),
+          boxSizing: "border-box",
+        });
 
-        helper: function (e, item) {
+        return helper;
+      },
 
-            const helper = item.clone();
+      appendTo: "body",
 
-            helper.css({
-                width: item.outerWidth(),
-                minHeight: item.outerHeight(),
-                height: item.outerHeight(),
-                boxSizing: "border-box"
-            });
+      zIndex: 99999,
 
-            return helper;
-        },
+      cursorAt: {
+        left: 60,
+        top: 30,
+      },
 
-        appendTo: "body",
+      delay: 120,
 
-        zIndex: 99999,
+      distance: 10,
 
-        cursorAt: {
-            left: 60,
-            top: 30
-        },
+      scroll: true,
 
-        delay: 120,
+      scrollSensitivity: 80,
 
-        distance: 10,
+      scrollSpeed: 20,
 
-        scroll: true,
+      start: function (event, ui) {
+        ui.helper.css({
+          width: ui.item.outerWidth(),
+          height: ui.item.outerHeight(),
+        });
 
-        scrollSensitivity: 80,
+        ui.placeholder.height(ui.item.outerHeight());
 
-        scrollSpeed: 20,
+        ui.placeholder.width(ui.item.outerWidth());
+      },
 
-        start: function (event, ui) {
+      stop: function () {
+        $(".column").removeClass("drag-hover");
+      },
 
-            ui.helper.css({
-                width: ui.item.outerWidth(),
-                height: ui.item.outerHeight()
-            });
+      receive: function (event, ui) {
+        const task = ui.item;
 
-            ui.placeholder.height(
-                ui.item.outerHeight()
-            );
+        const targetColumn = $(this).closest(".column").attr("id");
 
-            ui.placeholder.width(
-                ui.item.outerWidth()
-            );
-
-        },
-
-        stop: function () {
-
-            $(".column")
-                .removeClass("drag-hover");
-
-        },
-
-        receive: function (event, ui) {
-
-            const task = ui.item;
-
-            const targetColumn =
-                $(this)
-                    .closest(".column")
-                    .attr("id");
-
-            handleTaskMovement(
-                task,
-                targetColumn
-            );
-
-        }
-
-    }).disableSelection();
-
+        handleTaskMovement(task, targetColumn);
+      },
+    })
+    .disableSelection();
 }
 
 /* ==========================
@@ -160,39 +130,25 @@ function initializeBoard() {
 ========================== */
 
 function addTask() {
+  const taskName = $("#taskName").val().trim();
 
-    const taskName =
-        $("#taskName")
-            .val()
-            .trim();
+  const priority = $("#priority").val();
 
-    const priority =
-        $("#priority")
-            .val();
+  const deadline = $("#deadline").val();
 
-    const deadline =
-        $("#deadline")
-            .val();
+  if (!taskName) {
+    alert("Please enter a task name.");
 
-    if (!taskName) {
+    return;
+  }
 
-        alert(
-            "Please enter a task name."
-        );
+  const uniqueId = Date.now();
 
-        return;
-    }
+  const taskId = `task_${uniqueId}`;
 
-    const uniqueId =
-        Date.now();
+  const timerId = `timer_${uniqueId}`;
 
-    const taskId =
-        `task_${uniqueId}`;
-
-    const timerId =
-        `timer_${uniqueId}`;
-
-    const taskCard = $(`
+  const taskCard = $(`
         <div
             class="task"
             id="${taskId}"
@@ -234,134 +190,77 @@ function addTask() {
         </div>
     `);
 
-    taskCard.hide();
+  taskCard.hide();
 
-    $("#todo .drop-area")
-        .prepend(taskCard);
+  $("#todo .drop-area").prepend(taskCard);
 
-    taskCard.slideDown(250);
+  taskCard.slideDown(250);
 
-    totalTasks++;
+  totalTasks++;
 
-    updateStats();
+  updateStats();
 
-    updateColumnCounts();
+  updateColumnCounts();
 
-    if (deadline) {
+  if (deadline) {
+    startTimer(deadline, timerId, taskId);
+  }
 
-        startTimer(
-            deadline,
-            timerId,
-            taskId
-        );
+  $("#taskName").val("");
 
-    }
-
-    $("#taskName").val("");
-
-    $("#deadline").val("");
-
+  $("#deadline").val("");
 }
 
 /* ==========================
    DELETE TASK
 ========================== */
 
-$(document).on(
-    "click",
-    ".delete-btn",
-    function () {
+$(document).on("click", ".delete-btn", function () {
+  const task = $(this).closest(".task");
 
-        const task =
-            $(this)
-                .closest(".task");
+  const taskId = task.attr("id");
 
-        const taskId =
-            task.attr("id");
+  if (task.hasClass("completed-task")) {
+    completedTasks--;
+  }
 
-        if (
-            task.hasClass(
-                "completed-task"
-            )
-        ) {
+  if (task.hasClass("overdue-task")) {
+    overdueTasks--;
+  }
 
-            completedTasks--;
+  if (activeTimers[taskId]) {
+    clearInterval(activeTimers[taskId]);
 
-        }
+    delete activeTimers[taskId];
+  }
 
-        if (
-            task.hasClass(
-                "overdue-task"
-            )
-        ) {
+  totalTasks--;
 
-            overdueTasks--;
+  task.fadeOut(200, function () {
+    $(this).remove();
 
-        }
+    updateStats();
 
-        if (
-            activeTimers[taskId]
-        ) {
-
-            clearInterval(
-                activeTimers[taskId]
-            );
-
-            delete activeTimers[taskId];
-
-        }
-
-        totalTasks--;
-
-        task.fadeOut(
-            200,
-            function () {
-
-                $(this).remove();
-
-                updateStats();
-
-                updateColumnCounts();
-
-            }
-        );
-
-    }
-);
+    updateColumnCounts();
+  });
+});
 
 /* ==========================
    COLUMN COUNTS
 ========================== */
 
 function updateColumnCounts() {
+  $(".column").each(function () {
+    const taskCount = $(this).find(".task").length;
 
-    $(".column").each(function () {
+    $(this).find(".task-count").text(taskCount);
 
-        const taskCount =
-            $(this)
-                .find(".task")
-                .length;
-
-        $(this)
-            .find(".task-count")
-            .text(taskCount);
-
-        if (taskCount > 0) {
-
-            $(this)
-                .find(".empty-message")
-                .hide();
-
-        } else {
-
-            $(this)
-                .find(".empty-message")
-                .show();
-
-        }
-
-    });
-
+    if (taskCount > 0) {
+      $(this).find(".empty-message").hide();
+    } else {
+      $(this).find(".empty-message").show();
+    }
+  });
 }
 
 /* ==========================
@@ -369,153 +268,88 @@ function updateColumnCounts() {
 ========================== */
 
 function updateStats() {
+  const activeTasks = totalTasks - completedTasks - overdueTasks;
 
-    const activeTasks =
-        totalTasks -
-        completedTasks -
-        overdueTasks;
+  $("#totalTasks").text(totalTasks);
 
-    $("#totalTasks")
-        .text(totalTasks);
+  $("#completedTasks").text(completedTasks);
 
-    $("#completedTasks")
-        .text(completedTasks);
+  $("#overdueTasks").text(overdueTasks);
 
-    $("#overdueTasks")
-        .text(overdueTasks);
-
-    $("#activeTasks")
-        .text(activeTasks);
-
+  $("#activeTasks").text(activeTasks);
 }
 
 /* ==========================
    TASK MOVEMENT
 ========================== */
 
-function handleTaskMovement(
-    task,
-    targetColumn
-) {
+function handleTaskMovement(task, targetColumn) {
+  if (targetColumn === "completed") {
+    completeTask(task);
+  }
 
-    if (
-        targetColumn ===
-        "completed"
-    ) {
+  updateColumnCounts();
 
-        completeTask(task);
-
-    }
-
-    updateColumnCounts();
-
-    updateStats();
-
+  updateStats();
 }
 
 /* ==========================
    COUNTDOWN TIMER
 ========================== */
 
-function startTimer(
-    deadline,
-    timerId,
-    taskId
-) {
+function startTimer(deadline, timerId, taskId) {
+  const endTime = new Date(deadline).getTime();
 
-    const endTime =
-        new Date(deadline).getTime();
+  activeTimers[taskId] = setInterval(function () {
+    const now = new Date().getTime();
 
-    activeTimers[taskId] =
-        setInterval(function () {
+    const distance = endTime - now;
 
-            const now =
-                new Date().getTime();
+    const task = $("#" + taskId);
 
-            const distance =
-                endTime - now;
+    const timer = $("#" + timerId);
 
-            const task =
-                $("#" + taskId);
+    if (!task.length) {
+      clearInterval(activeTimers[taskId]);
 
-            const timer =
-                $("#" + timerId);
+      delete activeTimers[taskId];
 
-            if (!task.length) {
+      return;
+    }
 
-                clearInterval(
-                    activeTimers[taskId]
-                );
+    if (task.attr("data-completed") === "true") {
+      clearInterval(activeTimers[taskId]);
 
-                delete activeTimers[taskId];
+      delete activeTimers[taskId];
 
-                return;
-            }
+      return;
+    }
 
-            if (
-                task.attr(
-                    "data-completed"
-                ) === "true"
-            ) {
+    if (distance <= 0) {
+      clearInterval(activeTimers[taskId]);
 
-                clearInterval(
-                    activeTimers[taskId]
-                );
+      delete activeTimers[taskId];
 
-                delete activeTimers[taskId];
+      handleExpiredTask(task);
 
-                return;
-            }
+      return;
+    }
 
-            if (distance <= 0) {
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-                clearInterval(
-                    activeTimers[taskId]
-                );
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
 
-                delete activeTimers[taskId];
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-                handleExpiredTask(task);
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                return;
-            }
-
-            const days =
-                Math.floor(
-                    distance /
-                    (1000 * 60 * 60 * 24)
-                );
-
-            const hours =
-                Math.floor(
-                    (distance %
-                        (1000 * 60 * 60 * 24))
-                    /
-                    (1000 * 60 * 60)
-                );
-
-            const minutes =
-                Math.floor(
-                    (distance %
-                        (1000 * 60 * 60))
-                    /
-                    (1000 * 60)
-                );
-
-            const seconds =
-                Math.floor(
-                    (distance %
-                        (1000 * 60))
-                    / 1000
-                );
-
-            timer.html(`
+    timer.html(`
                 <i class="fa-regular fa-clock"></i>
                 ${days}d ${hours}h ${minutes}m ${seconds}s
             `);
-
-        }, 1000);
-
+  }, 1000);
 }
 
 /* ==========================
@@ -523,43 +357,28 @@ function startTimer(
 ========================== */
 
 function handleExpiredTask(task) {
+  if (task.hasClass("completed-task")) {
+    return;
+  }
 
-    if (
-        task.hasClass(
-            "completed-task"
-        )
-    ) {
-        return;
-    }
+  if (task.hasClass("overdue-task")) {
+    return;
+  }
 
-    if (
-        task.hasClass(
-            "overdue-task"
-        )
-    ) {
-        return;
-    }
+  task.addClass("overdue-task");
 
-    task.addClass(
-        "overdue-task"
-    );
-
-    task.find(".timer")
-        .addClass("expired")
-        .html(`
+  task.find(".timer").addClass("expired").html(`
             <i class="fa-solid fa-fire"></i>
             Deadline Passed
         `);
 
-    $("#backlog .drop-area")
-        .prepend(task);
+  $("#backlog .drop-area").prepend(task);
 
-    overdueTasks++;
+  overdueTasks++;
 
-    updateStats();
+  updateStats();
 
-    updateColumnCounts();
-
+  updateColumnCounts();
 }
 
 /* ==========================
@@ -567,109 +386,63 @@ function handleExpiredTask(task) {
 ========================== */
 
 function completeTask(task) {
+  if (task.attr("data-completed") === "true") {
+    return;
+  }
 
-    if (
-        task.attr(
-            "data-completed"
-        ) === "true"
-    ) {
-        return;
-    }
+  task.attr("data-completed", "true");
 
-    task.attr(
-        "data-completed",
-        "true"
-    );
+  const taskId = task.attr("id");
 
-    const taskId =
-        task.attr("id");
+  if (activeTimers[taskId]) {
+    clearInterval(activeTimers[taskId]);
 
-    if (
-        activeTimers[taskId]
-    ) {
+    delete activeTimers[taskId];
+  }
 
-        clearInterval(
-            activeTimers[taskId]
-        );
+  if (task.hasClass("overdue-task")) {
+    overdueTasks--;
+  }
 
-        delete activeTimers[taskId];
+  task.removeClass("overdue-task");
 
-    }
+  task.addClass("completed-task");
 
-    if (
-        task.hasClass(
-            "overdue-task"
-        )
-    ) {
+  task.find(".timer").remove();
 
-        overdueTasks--;
-
-    }
-
-    task.removeClass(
-        "overdue-task"
-    );
-
-    task.addClass(
-        "completed-task"
-    );
-
-    task.find(".timer")
-        .remove();
-
-    task.append(`
+  task.append(`
         <div class="completed-badge">
             <i class="fa-solid fa-check"></i>
             Finished
         </div>
     `);
-    task.css(
-        "cursor",
-        "default"
-    );
+  task.css("cursor", "default");
 
-    completedTasks++;
+  completedTasks++;
 
-    updateStats();
+  updateStats();
 
-    updateColumnCounts();
+  updateColumnCounts();
 
-    const taskName =
-        task.find(
-            ".task-title"
-        ).text();
+  const taskName = task.find(".task-title").text();
 
-    showSuccessToast(
-        taskName
-    );
+  showSuccessToast(taskName);
 
-    launchConfetti();
-
+  launchConfetti();
 }
 
 /* ==========================
    SUCCESS TOAST
 ========================== */
 
-function showSuccessToast(
-    taskName
-) {
+function showSuccessToast(taskName) {
+  $("#completedTaskName").text(`"${taskName}" completed successfully`);
 
-    $("#completedTaskName")
-        .text(
-            `"${taskName}" completed successfully`
-        );
+  $("#successToast").addClass("show");
 
-    $("#successToast")
-        .addClass("show");
-
-    setTimeout(function () {
-
-        $("#successToast")
-            .removeClass("show");
-
-    }, 3000);
-
+  setTimeout(function () {
+    $("#successToast").removeClass("show");
+  }, 3000);
 }
 
 /* ==========================
@@ -677,49 +450,35 @@ function showSuccessToast(
 ========================== */
 
 function launchConfetti() {
+  if (typeof confetti === "undefined") {
+    return;
+  }
 
-    if (
-        typeof confetti ===
-        "undefined"
-    ) {
-        return;
-    }
+  confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: {
+      y: 0.7,
+    },
+  });
 
+  setTimeout(() => {
     confetti({
-        particleCount: 120,
-        spread: 80,
-        origin: {
-            y: 0.7
-        }
+      particleCount: 80,
+      spread: 100,
+      origin: {
+        y: 0.6,
+      },
     });
-
-    setTimeout(() => {
-
-        confetti({
-            particleCount: 80,
-            spread: 100,
-            origin: {
-                y: 0.6
-            }
-        });
-
-    }, 200);
-
+  }, 200);
 }
 
 /* ==========================
    ENTER KEY SUPPORT
 ========================== */
 
-$("#taskName").on(
-    "keypress",
-    function (e) {
-
-        if (e.which === 13) {
-
-            addTask();
-
-        }
-
-    }
-);
+$("#taskName").on("keypress", function (e) {
+  if (e.which === 13) {
+    addTask();
+  }
+});
