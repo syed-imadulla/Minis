@@ -94,7 +94,7 @@ main {
    SYED'S LAB BADGE
    ============================================= */
 .site-header {
-  margin-bottom: 28px;
+  margin-bottom: -30px;
 }
 
 .lab-badge {
@@ -107,11 +107,11 @@ main {
   border-radius: 4px;
   padding: 7px 16px 7px 14px;
   box-shadow: 4px 4px 0 var(--shadow);
-  transform: rotate(-2deg);
+  transform: rotate(-9deg);
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 0.85rem;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   color: var(--ink);
   margin-left: 8px;
   margin-top: 28px;  /* space for rays above */
@@ -120,15 +120,16 @@ main {
 /* Blue tape strip */
 .badge-tape {
   position: absolute;
-  top: -8px;
-  left: -12px;
+  top: -5px;
+  left: -13px;
   width: 32px;
   height: 12px;
   background: #a4c2f4;
   border: 2px solid var(--ink);
   border-radius: 1px;
-  transform: rotate(-45deg);
+  transform: rotate(-28deg);
   z-index: 2;
+  opacity: 0.8;
 }
 
 /* Radiation lines top right */
@@ -157,7 +158,6 @@ main {
   align-items: center;
   gap: 0;
   margin-bottom: 60px;
-  padding-top: 8px;
 }
 
 /* "WELCOME TO" row */
