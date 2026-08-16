@@ -337,9 +337,9 @@ main {
   left: 14px;
   font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 0.72rem;
-  padding: 3px 9px;
-  border-radius: 6px;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: 2px solid var(--ink);
   letter-spacing: 0.5px;
 }
