@@ -3,47 +3,356 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini Projects</title>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>Mini Projects – Imad's Lab</title>
+    <meta name="description" content="Small experiments, creative builds, and fun ideas by Syed Imadulla." />
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <!-- doodle background -->
-    <div class="doodles">
-      <span class="blob1"></span>
-      <span class="blob2"></span>
+
+    <!-- =================== BACKGROUND DOODLES =================== -->
+    <div class="bg-doodles" aria-hidden="true">
+
+      <!-- Top-left dashed organic curve -->
+      <svg class="doodle d-tl-curve" width="100" height="100" viewBox="0 0 100 100">
+        <path d="M8,95 Q20,55 55,25 Q75,10 95,5" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Top-left tiny cross -->
+      <svg class="doodle d-tl-cross" width="16" height="16" viewBox="0 0 16 16">
+        <line x1="8" y1="1" x2="8" y2="15" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="1" y1="8" x2="15" y2="8" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Top-right blue zigzag -->
+      <svg class="doodle d-tr-zigzag" width="60" height="20" viewBox="0 0 60 20">
+        <path d="M2,15 L12,4 L24,15 L36,4 L48,15 L58,4" fill="none" stroke="#5b8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Top-right star -->
+      <svg class="doodle d-tr-star" width="22" height="22" viewBox="0 0 24 24">
+        <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Right dashed circle -->
+      <svg class="doodle d-r-circle" width="65" height="65" viewBox="0 0 65 65">
+        <circle cx="32.5" cy="32.5" r="30" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5 5"/>
+      </svg>
+
+      <!-- Left of cards – large outlined star -->
+      <svg class="doodle d-l-star" width="36" height="36" viewBox="0 0 24 24">
+        <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Right blue cross -->
+      <svg class="doodle d-r-cross" width="18" height="18" viewBox="0 0 18 18">
+        <line x1="1" y1="1" x2="17" y2="17" stroke="#5b8cff" stroke-width="2" stroke-linecap="round"/>
+        <line x1="17" y1="1" x2="1" y2="17" stroke="#5b8cff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Bottom-left blue zigzag -->
+      <svg class="doodle d-bl-zigzag" width="70" height="22" viewBox="0 0 70 22">
+        <path d="M2,18 L14,4 L28,18 L42,4 L56,18 L68,4" fill="none" stroke="#5b8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Bottom-left star -->
+      <svg class="doodle d-bl-star" width="26" height="26" viewBox="0 0 24 24">
+        <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Bottom-right dashed organic curve -->
+      <svg class="doodle d-br-curve" width="100" height="100" viewBox="0 0 100 100">
+        <path d="M5,5 Q35,30 55,65 Q70,85 95,95" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+      </svg>
+
+      <!-- Bottom-right arrow -->
+      <svg class="doodle d-br-arrow" width="55" height="45" viewBox="0 0 55 45">
+        <path d="M5,40 Q25,30 45,10" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+        <path d="M38,8 L47,10 L45,20" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
     </div>
 
-    <section class="hero">
-      <h1>MINI PROJECTS</h1>
-      <p>Small experiments, creative builds, and fun ideas.</p>
-    </section>
-
-    <section class="grid">
-      <a href="./counter/index.html" class="card">
-        <h2>Counter</h2>
-        <p>Increment / decrement with hidden 67 trigger</p>
-      </a>
-
-      <a href="./calci/index.html" class="card">
-        <h2>Calculator</h2>
-        <p>Calculator with Magic</p>
-      </a>
-
-      <a href="todo/index.html" class="card">
-        <h2>Todo</h2>
-        <p>Simple task manager</p>
-      </a>
-
-      <div class="card">
-        <h2>Notes</h2>
-        <p>Quick notes mini app (coming soon)</p>
+    <!-- =================== HEADER =================== -->
+    <header class="site-header">
+      <div class="lab-badge">
+        <!-- Tape strip -->
+        <div class="badge-tape"></div>
+        <!-- 3 radiation lines above badge -->
+        <svg class="badge-rays" viewBox="0 0 40 24" width="40" height="24">
+          <line x1="20" y1="22" x2="20" y2="6"  stroke="#222" stroke-width="2" stroke-linecap="round"/>
+          <line x1="20" y1="22" x2="5"  y2="8"  stroke="#222" stroke-width="2" stroke-linecap="round"/>
+          <line x1="20" y1="22" x2="35" y2="8"  stroke="#222" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="badge-dot"></span>
+        <span class="badge-text">IMAD'S LAB</span>
       </div>
-    </section>
+    </header>
+
+    <!-- =================== HERO =================== -->
+    <main>
+      <section class="hero" aria-label="Page heading">
+
+        <!-- "WELCOME TO" pill -->
+        <div class="welcome-row">
+          <!-- Left rays (diverge outward/left) -->
+          <svg class="welcome-rays rays-left" viewBox="0 0 22 24" width="22" height="24">
+            <line x1="20" y1="12" x2="4"  y2="4"  stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="20" y1="12" x2="2"  y2="12" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="20" y1="12" x2="4"  y2="20" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="welcome-pill">WELCOME TO</span>
+          <!-- Right rays (diverge outward/right) -->
+          <svg class="welcome-rays rays-right" viewBox="0 0 22 24" width="22" height="24">
+            <line x1="2" y1="12" x2="18" y2="4"  stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="2" y1="12" x2="20" y2="12" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="2" y1="12" x2="18" y2="20" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- MINI PROJECTS heading -->
+        <div class="hero-title-wrap">
+          <!-- Left blue rays (diverge outward/left) -->
+          <svg class="title-rays rays-left" viewBox="0 0 32 48" width="32" height="48">
+            <line x1="30" y1="24" x2="4"  y2="8"  stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="30" y1="24" x2="2"  y2="24" stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="30" y1="24" x2="4"  y2="40" stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <h1 class="hero-title">MINI PROJECTS</h1>
+          <!-- Right blue rays (diverge outward/right) -->
+          <svg class="title-rays rays-right" viewBox="0 0 32 48" width="32" height="48">
+            <line x1="2" y1="24" x2="28" y2="8"  stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="2" y1="24" x2="30" y2="24" stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="2" y1="24" x2="28" y2="40" stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <!-- Rough underline -->
+          <svg class="title-underline" viewBox="0 0 320 14" preserveAspectRatio="none">
+            <path d="M8,10 Q60,4 120,9 Q200,14 312,6" fill="none" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- Sub-description -->
+        <p class="hero-desc">Small experiments, creative builds, and fun ideas<br>scattered around my digital desk.</p>
+
+        <!-- Tiny blue accent under description -->
+        <svg class="desc-accent" viewBox="0 0 60 10" width="60" height="10">
+          <path d="M4,7 Q20,2 36,7 Q50,11 56,6" fill="none" stroke="#5b8cff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+
+      </section>
+
+      <!-- =================== PROJECT GRID =================== -->
+      <section class="project-grid" aria-label="Mini projects">
+
+        <!-- Card 01: Counter -->
+        <a href="./counter/index.html" class="card" id="card-counter">
+          <div class="card-num num-blue">01</div>
+          <svg class="card-star" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          <div class="card-body">
+            <div class="card-icon bg-yellow">
+              <!-- Counter icon: 007 display with sun rays -->
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+                <!-- display box -->
+                <rect x="9" y="18" width="30" height="16" rx="2" fill="#fff" stroke="#222" stroke-width="2"/>
+                <!-- vertical dividers -->
+                <line x1="19" y1="18" x2="19" y2="34" stroke="#222" stroke-width="1.5"/>
+                <line x1="29" y1="18" x2="29" y2="34" stroke="#222" stroke-width="1.5"/>
+                <!-- digits 007 -->
+                <text x="14" y="30" font-family="monospace" font-size="11" font-weight="bold" fill="#222" text-anchor="middle" stroke="none">0</text>
+                <text x="24" y="30" font-family="monospace" font-size="11" font-weight="bold" fill="#222" text-anchor="middle" stroke="none">0</text>
+                <text x="34" y="30" font-family="monospace" font-size="11" font-weight="bold" fill="#222" text-anchor="middle" stroke="none">7</text>
+                <!-- rays: top -->
+                <line x1="24" y1="14" x2="24" y2="9"  stroke-width="2"/>
+                <line x1="16" y1="15" x2="12" y2="11" stroke-width="2"/>
+                <line x1="32" y1="15" x2="36" y2="11" stroke-width="2"/>
+                <!-- rays: bottom -->
+                <line x1="24" y1="37" x2="24" y2="42" stroke-width="2"/>
+                <line x1="15" y1="37" x2="11" y2="41" stroke-width="2"/>
+                <line x1="33" y1="37" x2="37" y2="41" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Counter</h2>
+              <p class="card-desc">Increment / decrement<br>with hidden 67 trigger</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="view-link">View Project →</span>
+          </div>
+        </a>
+
+        <!-- Card 02: Calculator -->
+        <a href="./calci/index.html" class="card" id="card-calculator">
+          <div class="card-num num-blue">02</div>
+          <svg class="card-star" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          <div class="card-body">
+            <div class="card-icon bg-green">
+              <!-- Calculator icon -->
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+                <!-- body -->
+                <rect x="12" y="6" width="24" height="36" rx="3" fill="#fff" stroke="#222" stroke-width="2"/>
+                <!-- screen -->
+                <rect x="15" y="10" width="18" height="8" rx="1.5" fill="#d8f0e0" stroke="#222" stroke-width="1.5"/>
+                <!-- button rows -->
+                <rect x="15" y="22" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="21.5" y="22" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="28" y="22" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="15" y="28" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="21.5" y="28" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="28" y="28" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="15" y="34" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="21.5" y="34" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <rect x="28" y="34" width="5" height="4" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Calculator</h2>
+              <p class="card-desc">Calculator with<br>a bit of Magic ✨</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="view-link">View Project →</span>
+          </div>
+        </a>
+
+        <!-- Card 03: Todo -->
+        <a href="todo/index.html" class="card" id="card-todo">
+          <div class="card-num num-purple">03</div>
+          <svg class="card-star" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          <div class="card-body">
+            <div class="card-icon bg-pink">
+              <!-- Clipboard/checklist icon -->
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+                <!-- clip -->
+                <rect x="18" y="5" width="12" height="6" rx="2" fill="#fff" stroke="#222" stroke-width="1.8"/>
+                <!-- board -->
+                <rect x="10" y="9" width="28" height="34" rx="3" fill="#fff" stroke="#222" stroke-width="2"/>
+                <!-- row 1 -->
+                <rect x="14" y="17" width="5" height="5" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <line x1="22" y1="19.5" x2="34" y2="19.5" stroke="#222" stroke-width="1.5"/>
+                <polyline points="14.5 23 17 25 20 18" stroke="#222" stroke-width="1.5"/>
+                <!-- row 2 -->
+                <rect x="14" y="25" width="5" height="5" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <line x1="22" y1="27.5" x2="34" y2="27.5" stroke="#222" stroke-width="1.5"/>
+                <polyline points="14.5 31 17 33 20 26" stroke="#222" stroke-width="1.5"/>
+                <!-- row 3 -->
+                <rect x="14" y="33" width="5" height="5" rx="1" fill="#fff" stroke="#222" stroke-width="1.5"/>
+                <line x1="22" y1="35.5" x2="30" y2="35.5" stroke="#222" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Todo</h2>
+              <p class="card-desc">Simple task<br>manager</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="view-link">View Project →</span>
+          </div>
+        </a>
+
+        <!-- Card 04: Notes (coming soon) -->
+        <div class="card card-soon" id="card-notes">
+          <div class="card-num num-purple">04</div>
+          <svg class="card-star" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+          <div class="card-body">
+            <div class="card-icon bg-purple">
+              <!-- Notebook + pencil icon -->
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+                <!-- spiral rings -->
+                <path d="M14 8 Q12 5 14 3 Q16 5 14 8" stroke-width="1.8"/>
+                <path d="M20 8 Q18 5 20 3 Q22 5 20 8" stroke-width="1.8"/>
+                <path d="M26 8 Q24 5 26 3 Q28 5 26 8" stroke-width="1.8"/>
+                <path d="M32 8 Q30 5 32 3 Q34 5 32 8" stroke-width="1.8"/>
+                <!-- book body -->
+                <rect x="10" y="7" width="28" height="35" rx="2.5" fill="#fff" stroke="#222" stroke-width="2"/>
+                <!-- text lines -->
+                <line x1="15" y1="17" x2="33" y2="17" stroke-width="1.5"/>
+                <line x1="15" y1="23" x2="33" y2="23" stroke-width="1.5"/>
+                <line x1="15" y1="29" x2="25" y2="29" stroke-width="1.5"/>
+                <!-- pencil overlay -->
+                <polygon points="30 26 38 18 43 23 35 31 28 33" fill="#fff" stroke="#222" stroke-width="1.8"/>
+                <line x1="36" y1="20" x2="41" y2="25" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="card-info">
+              <h2 class="card-title">Notes</h2>
+              <p class="card-desc">Quick notes mini app<br><span class="coming-soon">(coming soon)</span></p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="coming-soon-badge">Coming Soon</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- =================== PORTFOLIO CTA =================== -->
+      <section class="cta-section" aria-label="Portfolio link">
+        <div class="cta-card">
+
+          <!-- Laptop illustration -->
+          <div class="cta-laptop" aria-hidden="true">
+            <svg viewBox="0 0 130 105" width="155" height="120" fill="none" stroke="#222" stroke-linecap="round" stroke-linejoin="round">
+              <!-- screen lid -->
+              <rect x="18" y="10" width="94" height="65" rx="6" fill="#dce8ff" stroke="#222" stroke-width="2.5"/>
+              <!-- screen bezel inner -->
+              <rect x="24" y="16" width="82" height="53" rx="3" fill="#eef3ff" stroke="#222" stroke-width="1.5"/>
+              <!-- smiley face on screen -->
+              <circle cx="65" cy="42" r="16" fill="#c5d8ff" stroke="#222" stroke-width="2"/>
+              <circle cx="59" cy="38" r="2.2" fill="#222" stroke="none"/>
+              <circle cx="71" cy="38" r="2.2" fill="#222" stroke="none"/>
+              <path d="M57 47 Q65 54 73 47" stroke="#222" stroke-width="2" fill="none"/>
+              <!-- laptop base / keyboard -->
+              <rect x="8"  y="76" width="114" height="14" rx="5" fill="#fff" stroke="#222" stroke-width="2.5"/>
+              <!-- trackpad line -->
+              <line x1="52" y1="83" x2="78" y2="83" stroke="#222" stroke-width="2"/>
+              <!-- left accent lines (rays) -->
+              <line x1="12" y1="40" x2="4"  y2="32" stroke="#222" stroke-width="1.8"/>
+              <line x1="12" y1="52" x2="4"  y2="58" stroke="#222" stroke-width="1.8"/>
+              <!-- right accent lines (rays) -->
+              <line x1="118" y1="40" x2="126" y2="32" stroke="#222" stroke-width="1.8"/>
+              <line x1="118" y1="52" x2="126" y2="58" stroke="#222" stroke-width="1.8"/>
+            </svg>
+          </div>
+
+          <!-- CTA text -->
+          <div class="cta-text">
+            <h2 class="cta-heading">Curious about my main work?</h2>
+            <!-- blue underline under heading — short, matches reference -->
+            <svg class="cta-heading-line" viewBox="0 0 220 10" preserveAspectRatio="none">
+              <path d="M4,7 Q55,2 110,7 Q160,12 216,6" fill="none" stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <p class="cta-desc">Dive into my full portfolio to explore extensive projects,<br>case studies, and more about my journey as a developer.</p>
+          </div>
+
+          <!-- CTA button -->
+          <div class="cta-action">
+            <a href="https://syedimadulla.vercel.app/" target="_blank" rel="noopener" class="cta-btn" id="portfolio-link">
+              Visit My Portfolio →
+            </a>
+            <!-- blue squiggle under button -->
+            <svg class="btn-accent" viewBox="0 0 140 10" preserveAspectRatio="none">
+              <path d="M4,7 Q35,2 70,7 Q105,12 136,5" fill="none" stroke="#5b8cff" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- decorative star in top-right of CTA -->
+          <svg class="cta-star" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+
+        </div>
+      </section>
+
+    </main>
+
   </body>
 </html>
