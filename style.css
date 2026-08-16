@@ -52,34 +52,56 @@ body {
 }
 
 /* =============================================
-   BACKGROUND DOODLES
+   DOODLE LAYER
    ============================================= */
-.bg-doodles {
+.doodle-layer {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0 auto;
-  max-width: 1200px;
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
   z-index: 0;
 }
 
-.doodle {
+.doodle-layer svg {
   position: absolute;
+  overflow: visible;
 }
 
-/* Positions calibrated exactly to reference image */
-.d-tl-curve  { top: 50px;   left: 0%;    opacity: 0.6;  }
-.d-tr-zigzag { top: 40px;   right: 5%;   opacity: 0.9;  }
-.d-tr-star   { top: 140px;  right: 15%;  opacity: 0.75; }
-.d-r-circle  { top: 280px;  right: -25px; opacity: 0.6; }
-.d-l-sparkle { top: 350px;  left: 4%;    opacity: 0.8;  }
-.d-r-cross   { top: 550px;  right: 6%;   opacity: 0.85; }
-.d-bl-zigzag { bottom: 120px; left: 4%;  opacity: 0.9;  }
-.d-bl-star   { bottom: 40px;  left: 6%;  opacity: 0.75; }
-.d-br-loop   { bottom: 40px;  right: 4%; opacity: 0.65; }
+/* --- TOP-LEFT ZONE --- */
+/* Large dashed organic loop — bleeds off-screen left */
+.dl-tl-loop  { top: 25px;    left: -95px; }
+/* Small gray plus cross near the loop */
+.dl-tl-cross { top: 195px;   left: 68px;  }
+
+/* --- TOP-RIGHT ZONE --- */
+/* Blue zigzag */
+.dl-tr-zigzag { top: 28px;   right: 70px; }
+/* Small outlined star */
+.dl-tr-star   { top: 92px;   right: 210px; }
+
+/* --- MID-RIGHT ZONE --- */
+/* Irregular dashed circle */
+.dl-r-circle  { top: 255px;  right: 65px; }
+
+/* --- MID-LEFT (card area) --- */
+/* Large 4-point star */
+.dl-l-star    { top: 430px;  left: 35px;  }
+
+/* --- MID-RIGHT (card area) --- */
+/* Blue X cross */
+.dl-r-cross   { top: 505px;  right: 85px; }
+
+/* --- BOTTOM-LEFT ZONE --- */
+/* Blue zigzag */
+.dl-bl-zigzag { bottom: 45px; left: 45px; }
+/* Small star above zigzag */
+.dl-bl-star   { bottom: 115px; left: 65px; }
+
+/* --- BOTTOM-RIGHT ZONE --- */
+/* Large dashed organic loop — bleeds off-screen */
+.dl-br-loop  { bottom: -70px; right: -80px; }
+/* Hand-drawn curved arrow */
+.dl-br-arrow { bottom: 55px;  right: 90px;  }
 
 /* =============================================
    LAYOUT WRAPPER
@@ -90,6 +112,15 @@ main {
   z-index: 1;
   max-width: 1080px;
   margin: 0 auto;
+}
+
+/* Ensure all content stays above doodle layer */
+.hero,
+.project-grid,
+.cta-card,
+.lab-badge {
+  position: relative;
+  z-index: 1;
 }
 
 /* =============================================
@@ -589,9 +620,11 @@ main {
     letter-spacing: 1px;
   }
 
-  .d-r-circle,
-  .d-tl-curve,
-  .d-br-loop {
+  /* Hide large loops and arrow on mobile — keep small accents */
+  .dl-tl-loop,
+  .dl-r-circle,
+  .dl-br-loop,
+  .dl-br-arrow {
     display: none;
   }
 

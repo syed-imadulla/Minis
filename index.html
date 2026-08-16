@@ -12,33 +12,74 @@
   </head>
   <body>
 
-    <!-- =================== BACKGROUND DOODLES =================== -->
-    <div class="bg-doodles" aria-hidden="true">
+    <!-- =================== DOODLE LAYER =================== -->
+    <div class="doodle-layer" aria-hidden="true">
 
-      <!-- Top-right blue zigzag -->
-      <svg class="doodle d-tr-zigzag" width="50" height="15" viewBox="0 0 60 20">
-        <path d="M2,15 L12,4 L24,15 L36,4 L48,15 L58,4" fill="none" stroke="#5b8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- 1. TOP-LEFT: Large hand-drawn dashed organic loop (partially off-screen) -->
+      <svg class="doodle dl-tl-loop" width="280" height="270" viewBox="0 0 280 270">
+        <path d="M 25 42 C 65 8, 135 10, 185 48 C 228 80, 244 135, 214 184 C 185 231, 112 263, 52 245 C 12 233, -12 202, -8 160 C -12 113, -5 72, 25 42"
+          fill="none" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="6 8" stroke-linecap="round" opacity="0.45"/>
       </svg>
 
-      <!-- Top-right star -->
-      <svg class="doodle d-tr-star" width="22" height="22" viewBox="0 0 24 24">
-        <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- 2. TOP-LEFT: Small gray cross near the loop -->
+      <svg class="doodle dl-tl-cross" width="35" height="35" viewBox="0 0 35 35">
+        <path d="M 9 17 L 26 17 M 17 9 L 17 26" stroke="#999" stroke-width="1.5" stroke-linecap="round" fill="none"/>
       </svg>
 
-      <!-- Right blue cross -->
-      <svg class="doodle d-r-cross" width="16" height="16" viewBox="0 0 16 16">
-        <line x1="2" y1="2" x2="14" y2="14" stroke="#5b8cff" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="14" y1="2" x2="2" y2="14" stroke="#5b8cff" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- 3. TOP-RIGHT: Blue zigzag -->
+      <svg class="doodle dl-tr-zigzag" width="90" height="35" viewBox="0 0 90 35">
+        <path d="M 3 19 L 15 7 L 27 18 L 39 7 L 51 18 L 63 7 L 76 18 L 87 7"
+          fill="none" stroke="#5b8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
 
-      <!-- Bottom-left blue zigzag -->
-      <svg class="doodle d-bl-zigzag" width="50" height="15" viewBox="0 0 60 20">
-        <path d="M2,15 L12,4 L24,15 L36,4 L48,15 L58,4" fill="none" stroke="#5b8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- 4. TOP-RIGHT: Small outlined star -->
+      <svg class="doodle dl-tr-star" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M20 4 L23 16 L35 20 L23 23 L20 36 L17 23 L5 20 L17 16 Z"
+          fill="none" stroke="#555" stroke-width="1.7" stroke-linejoin="round"/>
       </svg>
 
-      <!-- Bottom-left star -->
-      <svg class="doodle d-bl-star" width="22" height="22" viewBox="0 0 24 24">
-        <polygon points="12 2 14.4 9.2 22 9.3 16.2 13.8 18.2 21 12 16.7 5.8 21 7.8 13.8 2 9.3 9.6 9.2" fill="none" stroke="#333" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- 5. RIGHT: Irregular dashed circle near hero/cards -->
+      <svg class="doodle dl-r-circle" width="90" height="90" viewBox="0 0 90 90">
+        <path d="M45 7 C65 6, 82 20, 84 40 C87 60, 73 79, 54 82 C34 86, 13 76, 8 57 C3 37, 15 16, 33 10 C37 8, 41 7, 45 7"
+          fill="none" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="6 8" stroke-linecap="round" opacity="0.45"/>
+      </svg>
+
+      <!-- 6. LEFT: Large 4-point star beside project cards -->
+      <svg class="doodle dl-l-star" width="55" height="55" viewBox="0 0 55 55">
+        <path d="M27 4 L32 21 L49 27 L32 32 L27 50 L22 32 L5 27 L22 21 Z"
+          fill="none" stroke="#555" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- 7. RIGHT: Blue X cross beside cards -->
+      <svg class="doodle dl-r-cross" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M10 10 L30 30 M30 10 L10 30"
+          fill="none" stroke="#5b8cff" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+
+      <!-- 8. BOTTOM-LEFT: Blue zigzag -->
+      <svg class="doodle dl-bl-zigzag" width="90" height="35" viewBox="0 0 90 35">
+        <path d="M 3 19 L 15 7 L 27 18 L 39 7 L 51 18 L 63 7 L 76 18 L 87 7"
+          fill="none" stroke="#5b8cff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- 9. BOTTOM-LEFT: Small outlined star -->
+      <svg class="doodle dl-bl-star" width="40" height="40" viewBox="0 0 40 40">
+        <path d="M20 4 L23 16 L35 20 L23 23 L20 36 L17 23 L5 20 L17 16 Z"
+          fill="none" stroke="#555" stroke-width="1.7" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- 10. BOTTOM-RIGHT: Large dashed organic loop (partially off-screen) -->
+      <svg class="doodle dl-br-loop" width="280" height="260" viewBox="0 0 280 260">
+        <path d="M 42 72 C 78 25, 158 13, 215 46 C 263 74, 276 131, 251 178 C 225 226, 157 252, 92 235 C 45 222, 15 184, 17 139 C 18 112, 27 91, 42 72"
+          fill="none" stroke="#9a9a9a" stroke-width="1.5" stroke-dasharray="6 8" stroke-linecap="round" opacity="0.45"/>
+      </svg>
+
+      <!-- 11. BOTTOM-RIGHT: Hand-drawn curved arrow -->
+      <svg class="doodle dl-br-arrow" width="150" height="120" viewBox="0 0 150 120">
+        <path d="M18 18 C48 35, 66 61, 82 78 C95 92, 112 99, 130 91"
+          fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="6 7" stroke-linecap="round"/>
+        <path d="M130 91 L118 87 M130 91 L125 80"
+          fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
 
     </div>
