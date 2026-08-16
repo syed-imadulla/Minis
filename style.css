@@ -46,6 +46,7 @@ body {
   background-size: 26px 26px;
   color: var(--ink);
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   padding: 32px 24px 60px;
   position: relative;
@@ -612,6 +613,20 @@ main {
     grid-column: auto;
   }
 
+  /* Hide most background doodles on tablet/mobile to prevent overlapping content */
+  .doodle-layer svg {
+    display: none;
+  }
+  
+  /* Keep a few safe, small accents and reposition them */
+  .doodle-layer .dl-tr-zigzag,
+  .doodle-layer .dl-bl-zigzag,
+  .doodle-layer .dl-tl-cross {
+    display: block;
+  }
+  .dl-tr-zigzag { top: 20px; right: 20px; }
+  .dl-bl-zigzag { bottom: 20px; left: 20px; }
+
   .cta-card {
     flex-direction: column;
     text-align: center;
@@ -651,14 +666,6 @@ main {
   .hero-title {
     font-size: 2.6rem;
     letter-spacing: 1px;
-  }
-
-  /* Hide large loops and arrow on mobile — keep small accents */
-  .dl-tl-loop,
-  .dl-r-circle,
-  .dl-br-loop,
-  .dl-br-arrow {
-    display: none;
   }
 
   .cta-laptop-img {
