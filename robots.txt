@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /calci/surprise.html
+
+Sitemap: https://minisx.netlify.app/sitemap.xml
