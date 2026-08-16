@@ -254,6 +254,9 @@ main {
   position: relative;
   padding-bottom: 14px;
 }
+.blue-x {
+  color: var(--blue);
+}
 
 /* Rough underline — absolutely sits under the h1 */
 .title-underline {

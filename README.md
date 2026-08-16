@@ -1,4 +1,4 @@
-# 🎨 Mini Projects Collection
+# 🎨 MINIS X Collection
 
 Welcome to my collection of small experiments, creative builds, and fun interactive web applications! This repository houses several mini-projects built with HTML, CSS, and Vanilla JavaScript. 
 
