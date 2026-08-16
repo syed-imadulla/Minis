@@ -327,13 +327,20 @@ main {
   width: 68px;
   height: 68px;
   flex-shrink: 0;
-  border: 2.5px solid var(--ink);
-  border-radius: 50%;
+  border: 2px solid var(--ink);
+  /* Organic blob shape */
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
+
+/* Unique blob shapes for each card to look hand-drawn */
+#card-counter .card-icon { border-radius: 60% 40% 50% 50% / 40% 50% 60% 50%; }
+#card-calculator .card-icon { border-radius: 40% 60% 70% 30% / 50% 40% 50% 60%; }
+#card-todo .card-icon { border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%; }
+#card-notes .card-icon { border-radius: 45% 55% 60% 40% / 50% 50% 40% 60%; }
 
 .bg-yellow { background: var(--yellow); }
 .bg-green  { background: var(--green);  }
