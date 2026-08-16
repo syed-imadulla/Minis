@@ -55,29 +55,31 @@ body {
    BACKGROUND DOODLES
    ============================================= */
 .bg-doodles {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: 1200px;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden;
 }
 
 .doodle {
   position: absolute;
 }
 
-/* Positions calibrated to reference image */
-.d-tl-curve  { top: 2%;   left: 1%;  opacity: 0.55; }
-.d-tl-cross  { top: 16%;  left: 5%;  opacity: 0.55; }
-.d-tr-zigzag { top: 4%;   right: 3%; opacity: 0.9;  }
-.d-tr-star   { top: 8%;   right: 12%; opacity: 0.7; }
-.d-r-circle  { top: 40%;  right: 1%; opacity: 0.45; }
-.d-l-star    { top: 48%;  left: 1%;  opacity: 0.75; }
-.d-r-cross   { top: 62%;  right: 4%; opacity: 0.85; }
-.d-bl-zigzag { bottom: 7%; left: 1%;  opacity: 0.9;  }
-.d-bl-star   { bottom: 14%; left: 7%; opacity: 0.75; }
-.d-br-curve  { bottom: 2%; right: 1%; opacity: 0.5;  }
-.d-br-arrow  { bottom: 4%; right: 3%; opacity: 0.55; }
+/* Positions calibrated exactly to reference image */
+.d-tl-curve  { top: 50px;   left: 0%;    opacity: 0.6;  }
+.d-tr-zigzag { top: 40px;   right: 5%;   opacity: 0.9;  }
+.d-tr-star   { top: 140px;  right: 15%;  opacity: 0.75; }
+.d-r-circle  { top: 280px;  right: -25px; opacity: 0.6; }
+.d-l-sparkle { top: 350px;  left: 4%;    opacity: 0.8;  }
+.d-r-cross   { top: 550px;  right: 6%;   opacity: 0.85; }
+.d-bl-zigzag { bottom: 120px; left: 4%;  opacity: 0.9;  }
+.d-bl-star   { bottom: 40px;  left: 6%;  opacity: 0.75; }
+.d-br-loop   { bottom: 40px;  right: 4%; opacity: 0.65; }
 
 /* =============================================
    LAYOUT WRAPPER
@@ -571,8 +573,7 @@ main {
 
   .d-r-circle,
   .d-tl-curve,
-  .d-br-curve,
-  .d-br-arrow {
+  .d-br-loop {
     display: none;
   }
 
