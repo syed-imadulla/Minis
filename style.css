@@ -430,11 +430,13 @@ main {
   border: var(--card-border);
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
-  padding: 44px 50px;
+  padding: 20px 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Laptop */
