@@ -1,4 +1,10 @@
-# 🎨 MINIS X Collection
+<div align="center">
+  <img src="assets/favicon.svg" alt="MINIS X Logo" width="120" />
+  
+  # MINIS X
+</div>
+
+<br/>
 
 Welcome to my collection of small experiments, creative builds, and fun interactive web applications! This repository houses several mini-projects built with HTML, CSS, and Vanilla JavaScript. 
 
